@@ -37,25 +37,25 @@ export default function RootLayout({
 
         {/* Organization JSON-LD */}
         <Script
-          id="org-jsonld"
+          id="localbusiness-jsonld"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Bayonetics Engineering",
-              url: SITE_URL,
-              logo: "/favicon/favicon-96x96.png",
+              "@type": "LocalBusiness",
+              name: "Bayonetics Engineering Limited",
+              url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+              telephone: ["+2348161660213", "+2348117788403"],
+              email: "mail.bayonetics@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress:
+                  "Kajola Junction, Opp. Apple & Pears Company, Along Muhammadu Buhari Expressway",
+                addressLocality: "Ogun State",
+                addressCountry: "NG",
+              },
               sameAs: ["https://www.facebook.com/BayoneticsEngineering"],
-              contactPoint: [
-                {
-                  "@type": "ContactPoint",
-                  contactType: "customer service",
-                  areaServed: "NG",
-                  availableLanguage: ["en"],
-                },
-              ],
             }),
           }}
         />

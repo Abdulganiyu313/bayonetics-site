@@ -1,20 +1,123 @@
 @use "../../styles/tokens.scss" as *;
 
+/* Dark footer that contrasts the page */
 .footer {
   margin-top: auto;
-  border-top: 1px solid $color-border;
-  background: $color-surface;
+  background: #0f172a; /* slate-900 */
+  color: #e5e7eb; /* gray-200 */
 }
-.inner {
+
+/* TopBar inside footer — invert for dark bg */
+.footer :global(.topbar) {
+  background: #0f172a;
+}
+.footer :global(.inFooter) {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer :global(.cells) {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer :global(.cell) {
+  background: #0f172a;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer :global(.icon) {
+  color: #e5e7eb;
+}
+.footer :global(.cell:hover .icon) {
+  color: $color-accent;
+}
+
+/* Two-column grid (brand mark removed) */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 28px;
+  padding: 22px 0 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.col {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+.colWide {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.heading {
+  margin: 0 0 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #cbd5e1; /* slate-300 */
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: 700;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+
+.blurb {
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Address with location pin */
+.address {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 6px 0 0;
+}
+.pin {
+  width: 18px;
+  height: 18px;
+  color: $color-accent;
+  margin-top: 2px;
+}
+
+/* Bottom strip */
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
-  gap: 16px;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 12px 0 18px;
 }
-.links {
+.copy {
+  margin: 0;
+  opacity: 0.85;
+}
+.legal {
   display: flex;
   gap: 16px;
+}
+.legal a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+.legal a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
 }

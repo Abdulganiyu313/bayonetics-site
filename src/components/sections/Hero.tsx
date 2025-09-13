@@ -10,11 +10,12 @@ export default function Hero() {
     <section className={styles.hero} aria-label="Hero">
       <div className={styles.mediaWrap}>
         <Image
-          src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop"
+          src="/images/hero/hero-workshop.jpg"
           alt="Workshop machining and fabrication"
           fill
+          sizes="(max-width: 900px) 100vw, 1200px"
           priority
-          className={styles.bg}
+          style={{ objectFit: "cover" }}
         />
         <div className={styles.overlay} />
       </div>
