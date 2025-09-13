@@ -1,0 +1,54 @@
+@use "../../../styles/tokens.scss" as *;
+
+.header {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $color-border;
+}
+.title {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 32px);
+}
+.meta {
+  opacity: 0.75;
+  font-size: 14px;
+}
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+.badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 138, 131, 0.35);
+  background: rgba(14, 138, 131, 0.1);
+  font-size: 12px;
+}
+
+.layout {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  padding-top: 16px;
+}
+.sectionCard {
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: $color-surface;
+  box-shadow: $shadow;
+  padding: 16px;
+}
+.h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.outcomes {
+  margin: 0;
+  padding-left: 18px;
+}
+.body {
+  margin: 0;
+}

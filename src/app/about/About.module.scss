@@ -1,0 +1,144 @@
+@use "../../styles/tokens.scss" as *;
+
+.page {
+  padding: 24px 0;
+}
+.header {
+  padding: 8px 0 18px;
+  border-bottom: 1px solid $color-border;
+}
+.title {
+  margin: 0;
+  font-size: clamp(26px, 3.2vw, 38px);
+  letter-spacing: 0.2px;
+}
+.sub {
+  margin: 8px 0 0;
+  opacity: 0.9;
+  max-width: 72ch;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  padding-top: 18px;
+  grid-template-columns: 1.2fr 0.8fr;
+}
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: $color-surface;
+  box-shadow: $shadow;
+  padding: 16px;
+}
+
+.h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+.p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+}
+.kpi {
+  background: #fff;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: $shadow;
+}
+.k {
+  font-size: 28px;
+  font-weight: 900;
+  color: $color-accent;
+}
+.v {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.capGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+.cap {
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+  box-shadow: $shadow;
+}
+.cap h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+.cap p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.equip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 138, 131, 0.35);
+  background: rgba(14, 138, 131, 0.1);
+  font-size: 12px;
+}
+
+.partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+.partner {
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: $shadow;
+  padding: 12px;
+  text-align: center;
+  font-weight: 700;
+  color: $color-muted;
+}
+
+.ctaBar {
+  margin-top: 18px;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: linear-gradient(90deg, rgba(14, 138, 131, 0.08), transparent);
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.cta {
+  background: $color-accent;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+}

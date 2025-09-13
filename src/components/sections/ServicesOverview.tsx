@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./ServicesOverview.module.scss";
+import Reveal from "@/components/ui/Reveal";
 
 type Item = { slug: string; title: string; summary: string; bullets: string[] };
 
@@ -32,7 +33,7 @@ const items: Item[] = [
     summary: "Preventive and corrective repair to cut downtime.",
     bullets: [
       "Pump & gearbox work",
-      "Bearing & seal replacement",
+      "Bearings & seals",
       "Shaft refurbishment",
       "Alignment",
     ],
@@ -44,8 +45,8 @@ const items: Item[] = [
     bullets: [
       "Bushings & couplings",
       "Sprockets & gears",
-      "Material selection",
-      "Finish & tolerances",
+      "Materials & finish",
+      "Tolerances",
     ],
   },
 ];
@@ -55,7 +56,7 @@ export default function ServicesOverview() {
     <section className="section" aria-label="Services overview">
       <div className="container">
         <h2 className={styles.h2}>Core Services</h2>
-        <div className={styles.grid}>
+        <Reveal className={styles.grid}>
           {items.map((it) => (
             <article key={it.slug} className={styles.card}>
               <header>
@@ -74,7 +75,7 @@ export default function ServicesOverview() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

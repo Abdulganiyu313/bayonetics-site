@@ -1,0 +1,38 @@
+@use "../../styles/tokens.scss" as *;
+
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.cell {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  overflow: hidden;
+  background: $color-surface;
+  box-shadow: $shadow;
+  padding: 0;
+}
+.img {
+  object-fit: cover;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+.lbInner {
+  position: relative;
+  width: min(96vw, 1200px);
+  height: min(86vh, 800px);
+}
+.lbImg {
+  object-fit: contain;
+}
