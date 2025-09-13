@@ -1,0 +1,46 @@
+@use "../../styles/tokens.scss" as *;
+
+.band {
+  background: linear-gradient(90deg, rgba(249, 115, 22, 0.12), transparent);
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+}
+
+.inner {
+  padding: 28px 0;
+  display: grid;
+  gap: 8px;
+}
+
+/* Scoped headings/paragraphs for CSS Modules */
+.heading {
+  margin: 0;
+  font-size: clamp(18px, 2.8vw, 24px);
+}
+.sub {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.primary {
+  background: $color-accent;
+  color: #111827;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+}
+.ghost {
+  border: 1px solid $color-border;
+  color: inherit;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+}

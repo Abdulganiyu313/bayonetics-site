@@ -1,0 +1,50 @@
+@use "../../styles/tokens.scss" as *;
+
+.h2 {
+  margin: 0 0 14px;
+  font-size: clamp(22px, 3.2vw, 28px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: rgba(255, 255, 255, 0.02);
+  display: grid;
+  gap: 10px;
+  h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+  }
+}
+
+.summary {
+  opacity: 0.9;
+  margin: 0;
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+  li {
+    margin: 4px 0;
+  }
+}
+
+.footer {
+  margin-top: 2px;
+}
+.link {
+  color: $color-accent;
+  text-decoration: none;
+  font-weight: 700;
+}
+.link:hover {
+  opacity: 0.9;
+}
