@@ -2,6 +2,7 @@ import "@/styles/globals.scss";
 import type { Metadata } from "next";
 import NavBar from "@/components/shared/NavBar";
 import Footer from "@/components/shared/Footer";
+import WhatsAppFab from "@/components/shared/WhatsAppFab";
 
 export const metadata: Metadata = {
   title: "Bayonetics Engineering – Precision Machining & Fabrication",
@@ -21,6 +22,7 @@ export default function RootLayout({
           <NavBar />
           <main>{children}</main>
           <Footer />
+          <WhatsAppFab />
         </div>
       </body>
     </html>

@@ -1,7 +1,7 @@
 @use "../../styles/tokens.scss" as *;
 
 .band {
-  background: linear-gradient(90deg, rgba(249, 115, 22, 0.12), transparent);
+  background: linear-gradient(90deg, rgba(14, 138, 131, 0.08), transparent);
   border-top: 1px solid $color-border;
   border-bottom: 1px solid $color-border;
 }
@@ -11,15 +11,15 @@
   display: grid;
   gap: 8px;
 }
-
-/* Scoped headings/paragraphs for CSS Modules */
 .heading {
   margin: 0;
   font-size: clamp(18px, 2.8vw, 24px);
+  color: $color-text;
 }
 .sub {
   margin: 0;
-  opacity: 0.9;
+  opacity: 0.85;
+  color: $color-text;
 }
 
 .actions {
@@ -28,10 +28,9 @@
   margin-top: 6px;
   flex-wrap: wrap;
 }
-
 .primary {
   background: $color-accent;
-  color: #111827;
+  color: #fff;
   padding: 10px 16px;
   border-radius: 999px;
   text-decoration: none;
@@ -39,8 +38,10 @@
 }
 .ghost {
   border: 1px solid $color-border;
-  color: inherit;
+  color: $color-text;
   padding: 10px 16px;
   border-radius: 999px;
   text-decoration: none;
+  background: $color-surface;
+  box-shadow: $shadow;
 }

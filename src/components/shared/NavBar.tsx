@@ -13,6 +13,8 @@ export default function NavBar() {
             alt="Bayonetics Engineering"
             width={36}
             height={36}
+            priority
+            className={styles.logo}
           />
           <span>Bayonetics Engineering</span>
         </Link>

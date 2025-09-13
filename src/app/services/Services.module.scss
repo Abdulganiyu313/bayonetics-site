@@ -1,42 +1,124 @@
 @use "../../styles/tokens.scss" as *;
 
+.page {
+  padding: 24px 0;
+}
 .header {
-  padding: 32px 0 8px;
+  padding: 8px 0 18px;
   border-bottom: 1px solid $color-border;
 }
 .title {
   margin: 0;
-  font-size: clamp(22px, 3.2vw, 32px);
+  font-size: clamp(26px, 3.2vw, 38px);
+  letter-spacing: 0.2px;
 }
 .sub {
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   opacity: 0.9;
+  max-width: 72ch;
+}
+.breadcrumbs {
+  margin: 8px 0 6px;
+  opacity: 0.8;
+  font-size: 12px;
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .list {
   display: grid;
   gap: 18px;
-  padding: 24px 0;
+  padding-top: 18px;
 }
+
 .section {
   border: 1px solid $color-border;
   border-radius: $radius;
-  background: rgba(255, 255, 255, 0.02);
-  padding: 16px;
-  scroll-margin-top: 96px; /* so #anchors sit below sticky navbar */
+  background: $color-surface;
+  padding: 18px;
+  scroll-margin-top: 96px;
+  box-shadow: $shadow;
 }
-.section h2 {
-  margin: 0 0 6px;
+
+.sectionHeader {
+  display: grid;
+  gap: 4px;
+}
+.h2 {
+  margin: 0;
   font-size: clamp(18px, 2.6vw, 24px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.section p {
-  margin: 0 0 8px;
+.icon {
+  width: 22px;
+  height: 22px;
+  color: $color-accent;
+}
+.summary {
+  margin: 0;
   opacity: 0.92;
 }
-.section ul {
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 2px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(14, 138, 131, 0.1);
+  border: 1px solid rgba(14, 138, 131, 0.35);
+  font-size: 12px;
+}
+
+.long {
+  margin-top: 8px;
+}
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.cta {
+  background: $color-accent;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+}
+.note {
+  opacity: 0.65;
+  font-size: 12px;
+}
+
+/* Bottom FAQ block */
+.faqBlock {
+  margin-top: 18px;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: $color-surface;
+  padding: 16px;
+  box-shadow: $shadow;
+}
+.faqBlock h3 {
+  margin: 0 0 8px;
+}
+.faqList {
   margin: 0;
   padding-left: 18px;
 }
-.section li {
-  margin: 4px 0;
+.faqList li {
+  margin: 6px 0;
 }

@@ -1,7 +1,12 @@
-$color-bg: #0f172a;
-$color-text: #e5e7eb;
-$color-border: #1f2937;
-$color-accent: #f97316;
+$color-bg: #f6f8fb; // page background
+$color-surface: #ffffff; // cards/nav/footer
+$color-text: #0f172a; // slate-900
+$color-muted: #475569; // slate-600
+$color-border: #e5e7eb; // gray-200
+
+// Brand accent (from your logo teal)
+$color-accent: #0e8a83;
+
 $font-sans:
   "Inter",
   ui-sans-serif,
@@ -12,3 +17,4 @@ $font-sans:
   Arial,
   "Noto Sans";
 $radius: 12px;
+$shadow: 0 10px 25px rgba(15, 23, 42, 0.08);

@@ -8,7 +8,6 @@
   overflow: clip;
   border-bottom: 1px solid $color-border;
 }
-
 .mediaWrap {
   position: absolute;
   inset: 0;
@@ -16,12 +15,12 @@
 .bg {
   object-fit: cover;
   object-position: center;
-  filter: saturate(0.9) contrast(1.05);
+  filter: saturate(0.95) contrast(1.05);
 }
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.35));
 }
 
 .content {
@@ -29,38 +28,33 @@
   z-index: 1;
   max-width: 780px;
   padding: 56px 0;
+  color: #fff;
   h1 {
     margin: 0;
     font-size: clamp(28px, 4.6vw, 56px);
     line-height: 1.05;
-    letter-spacing: 0.2px;
   }
   p {
     margin: 14px 0 0;
-    opacity: 0.92;
-    font-size: clamp(16px, 2.2vw, 18px);
+    opacity: 0.95;
   }
 }
-
 .actions {
   display: flex;
   gap: 12px;
   margin-top: 18px;
   flex-wrap: wrap;
 }
-
 .primaryBtn {
   background: $color-accent;
-  color: #111827;
-  font-weight: 800;
+  color: #fff;
   border-radius: 999px;
   padding: 12px 18px;
   text-decoration: none;
 }
-
 .ghostBtn {
-  color: $color-text;
-  border: 1px solid $color-border;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
   padding: 12px 18px;
   text-decoration: none;

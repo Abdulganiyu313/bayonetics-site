@@ -3,7 +3,7 @@
 .footer {
   margin-top: auto;
   border-top: 1px solid $color-border;
-  background: rgba(255, 255, 255, 0.02);
+  background: $color-surface;
 }
 .inner {
   display: flex;

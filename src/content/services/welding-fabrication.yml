@@ -6,15 +6,4 @@ bullets:
   - Frames, guards, hoppers, brackets, and custom jigs
   - Onsite fit-up and installation
   - Visual inspection and test coupons
-  - Materials: steel, stainless, aluminum, brass, bronze
-content: |
-  ## Welding & Fabrication Services
-  Our welding and fabrication services include structural and sheet-metal fabrication using MIG, TIG, and argon welding techniques. We work with a variety of materials, including carbon steel, stainless steel, aluminum, brass, and bronze.
-  ### Welding Techniques
-  We offer MIG, TIG, and argon welding services to meet your specific project requirements.
-  ### Custom Fabrication
-  Our custom fabrication services include the creation of frames, guards, hoppers, brackets, and jigs to your specifications.
-  ### Onsite Fit-Up and Installation
-  We provide onsite fit-up and installation services to ensure that your fabricated components are properly aligned and secured.
-  ### Quality Assurance
-  Our welding services include visual inspection and the use of test coupons to ensure the highest quality workmanship.
+materials: steel, stainless, aluminum, brass, bronze

@@ -7,17 +7,4 @@ bullets:
   - Keyway cutting and basic gear work (spur)
   - Reverse engineering of worn components
   - Custom fabrication and repair services
-  - Materials: steel, stainless, aluminum, brass, bronze, plastics
-content: |
-  ## Precision Machining Services
-  Our precision machining services include high-accuracy turning, milling, drilling, and keyway cutting for custom parts and repairs. We work with a variety of materials, including steel, stainless steel, aluminum, brass, bronze, and plastics.
-  ### Lathe Turning
-  We offer lathe turning services for shafts, sleeves, bushings, and other cylindrical components
-  ### Milling and Drilling
-  Our milling and drilling services include both CNC and manual machining for a wide range of applications.
-  ### Keyway Cutting and Gear Work
-  We provide keyway cutting and basic gear work (spur) to meet your specific requirements.
-  ### Reverse Engineering
-  Our reverse engineering services allow us to recreate worn or damaged components with high precision.
-  ### Custom Fabrication and Repair
-  We offer custom fabrication and repair services to help you get your equipment back in working order.
+materials: steel, stainless, aluminum, brass, bronze, plastics

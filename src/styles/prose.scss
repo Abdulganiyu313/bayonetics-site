@@ -1,0 +1,58 @@
+@use "./tokens.scss" as *;
+
+.prose {
+  line-height: 1.7;
+  color: $color-text;
+
+  h2,
+  h3,
+  h4 {
+    margin: 16px 0 8px;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+  }
+  h2 {
+    font-size: clamp(20px, 2.6vw, 24px);
+  }
+  h3 {
+    font-size: clamp(18px, 2.2vw, 20px);
+  }
+  h4 {
+    font-size: clamp(16px, 2vw, 18px);
+  }
+
+  p {
+    margin: 10px 0;
+    opacity: 0.95;
+  }
+  ul,
+  ol {
+    margin: 10px 0 10px 20px;
+  }
+  li {
+    margin: 4px 0;
+  }
+  strong {
+    font-weight: 700;
+  }
+  a {
+    color: $color-accent;
+    text-decoration: none;
+  }
+}
+.prose {
+  h2 + p {
+    margin-top: 6px;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 18px 0;
+  }
+  blockquote {
+    margin: 12px 0;
+    padding-left: 12px;
+    border-left: 3px solid rgba(255, 255, 255, 0.2);
+    opacity: 0.9;
+  }
+}
