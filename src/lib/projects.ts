@@ -5,6 +5,7 @@ import YAML from "yaml";
 export type Project = {
   slug: string;
   title: string;
+  headline?: string;
   client?: string;
   location?: string;
   date?: string;
@@ -13,6 +14,7 @@ export type Project = {
   outcomes?: string[];
   hero?: string;
   images?: string[];
+  gallery?: { src: string; caption: string }[];
   body?: string;
 };
 

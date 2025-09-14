@@ -1,26 +1,30 @@
-slug: rotary-shaft-repair
+slug: rotary-shaft-repair-alignment
 title: Rotary Shaft Repair & Alignment
-client: FMCG Plant
+client: Quarry Conveyor Line
 location: Ogun, Nigeria
-date: 2025-06-12
-summary: Refurbished worn rotary shaft, replaced bearings and seals, and laser-aligned the assembly to reduce vibration.
-services:
-  - precision-machining
-  - maintenance-repair
+date: 2025-09-13
+summary: Precision machining and alignment of a worn conveyor drive shaft to restore concentricity and reduce vibration.
+services: [maintenance-repair, precision-machining]
 outcomes:
-  - 42% reduction in vibration
-  - Extended bearing life by 2×
-  - 24-hour turnaround
-hero: https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop
-images:
-  - https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=1600&auto=format&fit=crop
-  - https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop
-  - https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=1600&auto=format&fit=crop
-body: |
-  ### Scope
-  - Measure & assess wear, reverse-engineer critical fits
-  - Machine shaft journals and keyway, replace seals & bearings
-  - Laser alignment and vibration check after reassembly
+  - Concentricity restored to within 0.02 mm TIR
+  - Bearing temperature dropped by 18°C after run-in
+  - Vibration at the coupling reduced to acceptable ISO range
+  - Returned to service within 24 hours
+notes:
+  - The quarry's main conveyor drive shaft had developed significant runout due to wear and misalignment, leading to excessive vibration and bearing temperatures. Our team performed on-site precision machining to restore the shaft's concentricity, rebuilt the bearing seats, and executed a meticulous alignment procedure using laser alignment tools. Post-repair monitoring showed a substantial reduction in vibration levels and bearing temperatures, ensuring reliable operation of the conveyor system.
+  - The successful completion of this project not only minimized downtime but also enhanced the overall efficiency of the conveyor system, demonstrating our commitment to delivering high-quality engineering solutions.
+  - Our team's expertise in precision machining and alignment was crucial in addressing the complex challenges presented by this project.
+  - Our commitment to quality and attention to detail ensured a successful outcome.
 
-  ### Notes
-  Delivered in a single shift to help minimize downtime. Client signed off after acceptance run.
+hero: /images/projects/rotary-shaft-repair-alignment/hero.jpg
+images:
+  - /images/projects/rotary-shaft-repair-alignment/1.jpg
+  - /images/projects/rotary-shaft-repair-alignment/2.jpg
+  - /images/projects/rotary-shaft-repair-alignment/3.jpg
+gallery:
+  - src: /images/projects/rotary-shaft-repair-alignment/1.jpg
+    caption: Close-up of shaft coupling with dial gauge during runout check
+  - src: /images/projects/rotary-shaft-repair-alignment/2.jpg
+    caption: Alignment setup diagram used on-site for concentricity/parallelism
+  - src: /images/projects/rotary-shaft-repair-alignment/3.jpg
+    caption: Newly machined coupling (plus spare) ready for installation

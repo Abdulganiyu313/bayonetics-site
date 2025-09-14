@@ -8,6 +8,9 @@ export const metadata = { title: "Projects – Bayonetics Engineering" };
 export default async function ProjectsPage() {
   const projects = await getAllProjects();
 
+  const imgOrFallback = (src?: string) =>
+    src && src.startsWith("/") ? src : "/images/placeholders/project.jpg";
+
   return (
     <div className="container section">
       <header className={styles.header}>
@@ -26,14 +29,10 @@ export default async function ProjectsPage() {
           >
             <div className={styles.thumb}>
               <Image
-                src={
-                  p.hero ||
-                  (p.images?.[0] ??
-                    "https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=1600&auto=format&fit=crop")
-                }
-                alt=""
+                src={imgOrFallback(p.hero)}
+                alt={p.title}
                 fill
-                sizes="(max-width: 900px) 100vw, 33vw"
+                sizes="(max-width: 900px) 100vw, 320px"
                 style={{ objectFit: "cover" }}
               />
             </div>

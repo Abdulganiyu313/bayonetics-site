@@ -1,74 +1,74 @@
-import { getAllProjects, getProject } from "@/lib/projects";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 import styles from "./Project.module.scss";
-import Gallery from "@/components/projects/Gallery";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import ProjectClient from "./ProjectClient";
+import { getProject, type Project } from "@/lib/content";
 
-type Params = { slug: string };
+type RouteProps = { params: Promise<{ slug: string }> }; // <-- params is async
 
-export async function generateStaticParams() {
-  const projects = await getAllProjects();
-  return projects.map((p) => ({ slug: p.slug }));
+export async function generateMetadata({ params }: RouteProps) {
+  const { slug } = await params; // <-- await params
+  const p = await getProject(slug);
+  if (!p) return {};
+  return { title: `${p.title} – Project – Bayonetics Engineering` };
 }
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const p = await getProject(params.slug);
-  return {
-    title: p ? `${p.title} – Projects` : "Project – Bayonetics Engineering",
-  };
-}
+export default async function ProjectPage({ params }: RouteProps) {
+  const { slug } = await params; // <-- await params
+  const p = await getProject(slug);
+  if (!p) return notFound();
 
-export default async function ProjectPage({ params }: { params: Params }) {
-  const p = await getProject(params.slug);
-  if (!p) return <div className="container section">Project not found.</div>;
+  // Safely read optional YAML field without widening your Project type
+  const notes = Array.isArray((p as any).notes)
+    ? ((p as any).notes as string[])
+    : undefined;
 
   return (
     <div className="container section">
-      <header className={styles.header}>
-        <h1 className={styles.title}>{p.title}</h1>
-        <div className={styles.meta}>
-          {[p.client, p.location, p.date]?.filter(Boolean).join(" • ")}
-        </div>
-        {p.services && p.services.length > 0 && (
-          <div className={styles.badges}>
-            {p.services.map((s) => (
-              <span key={s} className={styles.badge}>
-                {s.replace("-", " ")}
-              </span>
-            ))}
-          </div>
-        )}
-      </header>
+      <div className={styles.wrap}>
+        <header className={styles.head}>
+          <h1 className={styles.title}>{p.title}</h1>
+          {p.headline ? <p className={styles.headline}>{p.headline}</p> : null}
+          {[p.client, p.location, p.date].filter(Boolean).length ? (
+            <p className={styles.meta}>
+              {[p.client, p.location, p.date].filter(Boolean).join(" · ")}
+            </p>
+          ) : null}
+          {p.summary ? <p className={styles.summary}>{p.summary}</p> : null}
+        </header>
 
-      <div className={styles.layout}>
-        {p.images && p.images.length > 0 && (
-          <div className={styles.sectionCard}>
-            <h3 className={styles.h3}>Gallery</h3>
-            <Gallery images={p.images} />
+        {p.hero ? (
+          <div className={styles.hero}>
+            <Image
+              src={
+                p.hero.startsWith("/")
+                  ? p.hero
+                  : "/images/placeholders/project.jpg"
+              }
+              alt={p.title}
+              fill
+              sizes="100vw"
+              style={{ objectFit: "cover" }}
+            />
           </div>
-        )}
+        ) : null}
 
-        {p.outcomes && p.outcomes.length > 0 && (
-          <div className={styles.sectionCard}>
-            <h3 className={styles.h3}>Outcomes</h3>
+        {/* NEW: Notes — uses existing styles to avoid layout shifts */}
+        {notes?.length ? (
+          <section aria-labelledby="notes-heading">
+            <h2 id="notes-heading" className={styles.headline}>
+              Notes
+            </h2>
             <ul className={styles.outcomes}>
-              {p.outcomes.map((o, i) => (
-                <li key={i}>{o}</li>
+              {notes.map((n, i) => (
+                <li key={i}>{n}</li>
               ))}
             </ul>
-          </div>
-        )}
+          </section>
+        ) : null}
 
-        {p.body && (
-          <div className={styles.sectionCard}>
-            <h3 className={styles.h3}>Case Study</h3>
-            <div className="prose">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {p.body}
-              </ReactMarkdown>
-            </div>
-          </div>
-        )}
+        {/* Client-side lightbox/gallery */}
+        <ProjectClient project={p as Project} />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { iconFor } from "./icons";
 import "@/styles/prose.scss";
 import Link from "next/link";
+import type { Service } from "@/lib/content";
 
 export const metadata = { title: "Services – Bayonetics Engineering" };
 
@@ -61,26 +62,6 @@ export default async function ServicesPage() {
                   </h2>
                   {s.summary && <p className={styles.summary}>{s.summary}</p>}
                 </div>
-
-                {/* Optional long markdown content (you removed it, which is fine) */}
-                {s.content && (
-                  <div className={`prose ${styles.long}`}>
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      components={{
-                        a: ({ node, ...props }) => (
-                          <a
-                            {...props}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          />
-                        ),
-                      }}
-                    >
-                      {s.content}
-                    </ReactMarkdown>
-                  </div>
-                )}
 
                 {s.bullets && s.bullets.length > 0 && (
                   <ul>

@@ -1,23 +1,35 @@
 slug: custom-bracket-fabrication
 title: Stainless Bracket Fabrication
+headline: Food-grade TIG-welded brackets and guards with clean, brushed finish
 client: Packaging Line
 location: Lagos, Nigeria
 date: 2025-05-20
 summary: Designed and fabricated food-grade stainless brackets and guards with TIG welds and clean finish.
 services: [welding-fabrication, custom-parts]
 outcomes:
-  - Tool-less access for maintenance
-  - Corrosion-resistant finish
-  - Delivered and installed on site
-hero: https://images.unsplash.com/photo-1551817958-20204c6a3f31?q=80&w=1600&auto=format&fit=crop
+  - Custom 304 stainless steel brackets and guards fabricated to spec
+  - TIG-welded joints for strength and hygiene
+  - Brushed finish for easy cleaning and contamination prevention
+  - Installed on-site with verified clearances for tool-less removal
+notes:
+  - We designed and fabricated custom stainless steel brackets and guards for a food packaging line, ensuring compliance with hygiene standards. The brackets were TIG-welded for strength and durability, then finished with a brushed surface to prevent contamination and facilitate cleaning. Our team worked closely with the client to ensure the designs met their specific requirements for tool-less access during maintenance, enhancing operational efficiency.
+  - The project was completed on schedule, with the fabricated parts delivered and installed on site, resulting in improved safety and functionality of the packaging line.
+  - Our expertise in stainless steel fabrication and attention to detail ensured a high-quality outcome that met the client's expectations.
+
+hero: /images/projects/custom-bracket-fabrication/hero.jpg
+
 images:
-  - https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?q=80&w=1600&auto=format&fit=crop
-  - https://images.unsplash.com/photo-1565058528608-805f0a4e05ed?q=80&w=1600&auto=format&fit=crop
-body: |
-  ### Scope
-  - Reverse-engineer mounting points
-  - TIG weld 304 parts, radius edges, polish
-  - Install guards and verify clearance
-  ### Notes
-  Brackets designed for easy removal without tools to facilitate regular cleaning and maintenance. All welds were ground smooth to eliminate sharp edges.
-  Finished with a brushed polish to match existing equipment.
+  - /images/projects/custom-bracket-fabrication/1.jpg
+  - /images/projects/custom-bracket-fabrication/2.jpg
+  - /images/projects/custom-bracket-fabrication/3.jpg
+  - /images/projects/custom-bracket-fabrication/4.jpg
+
+gallery:
+  - src: /images/projects/custom-bracket-fabrication/1.jpg
+    caption: TIG-welded 304 bracket after radius edging and surface prep.
+  - src: /images/projects/custom-bracket-fabrication/2.jpg
+    caption: Final fit-up check on the line; clearances verified for tool-less removal.
+  - src: /images/projects/custom-bracket-fabrication/3.jpg
+    caption: Completed installation of brackets and guards on the packaging line.
+  - src: /images/projects/custom-bracket-fabrication/4.jpg
+    caption: Brushed finish on stainless steel for hygiene and easy cleaning.
