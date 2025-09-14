@@ -1,25 +1,60 @@
 slug: precision-bronze-bushings
 title: Precision Bronze Bushing Batch
-client: OEM Spare Order
-location: Abeokuta, Nigeria
+client: Manufactured for Agrira West Africa limited
+location: Orile-Imo Town, Obafemi Owode Local Government Area, Ogun State, Nigeria.
 date: 2025-02-14
-summary: Turned and bored phosphor-bronze bushings to tight tolerances with chamfers and oil grooves.
-services: [precision-machining, custom-parts]
+summary: Manufactured a batch of phosphor-bronze bushings to tight tolerances for industrial machinery.
+services: [precision-machining, custom-parts, material-sourcing]
 outcomes:
-  - Dimensional accuracy within ±0.02 mm
-  - Consistent surface finish
-  - Packed and labeled by lot
-hero: https://images.unsplash.com/photo-1488229297570-58520851e868?q=80&w=1600&auto=format&fit=crop
+  - Batch of 10 phosphor-bronze bushings machined to ±0.01 mm tolerance
+  - Bored to specified ID with surface finish of Ra 0.8 µm
+  - Chamfers and oil grooves added for assembly and lubrication
+  - Delivered on time to meet client's production schedule
+
+notes:
+  - We manufactured a batch of phosphor-bronze bushings for an OEM client,  ensuring precise dimensions and high-quality finishes. The bushings were turned to the specified outer diameter with a tolerance of ±0.01 mm, then bored to the required inner diameter with a surface finish of Ra 0.8 µm. Chamfers were applied to the edges to facilitate assembly, and oil grooves were machined into the inner surface to enhance lubrication during operation. Our team worked diligently to complete the order on time, allowing the client to maintain their production schedule without delays.
+  - The project was completed successfully, with all bushings meeting the stringent quality standards set by the client. The precision machining and attention to detail ensured that the bushings would perform reliably in their intended application.
+  - Our expertise in working with bronze materials and precision machining techniques was crucial in achieving the desired outcomes for this project.
+  - The client's satisfaction with the quality and timeliness of the delivery reinforced our reputation as a trusted supplier of custom machined parts.
+
+hero: /images/projects/precision-bronze-bushings/hero.jpg
+
 images:
-  - https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1600&auto=format&fit=crop
-  - https://images.unsplash.com/photo-1577968897966-3d2890e7b7a5?q=80&w=1600&auto=format&fit=crop
-body: |
-  ### Process
-  - Rough & finish turn, bore, groove, deburr
-  - Inspect critical IDs/ODs and lengths
-  - Pack in labeled lots for traceability
-  ### Notes
-  - All bushings inspected and measured before packing
-  - Documentation provided for each lot
-  - Delivered on schedule to meet client production needs
-  - Client satisfied with quality and turnaround
+  - /images/projects/precision-bronze-bushings/1.jpg
+  - /images/projects/precision-bronze-bushings/2.jpg
+  - /images/projects/precision-bronze-bushings/3.jpg
+  - /images/projects/precision-bronze-bushings/4.jpg
+  - /images/projects/precision-bronze-bushings/5.jpg
+  - /images/projects/precision-bronze-bushings/6.jpg
+  - /images/projects/precision-bronze-bushings/7.jpg
+  - /images/projects/precision-bronze-bushings/8.jpg
+  - /images/projects/precision-bronze-bushings/9.jpg
+  - /images/projects/precision-bronze-bushings/10.jpg
+  - /images/projects/precision-bronze-bushings/11.jpg
+  - /images/projects/precision-bronze-bushings/12.jpg
+
+gallery:
+  - src: /images/projects/precision-bronze-bushings/1.jpg
+    caption: Rough and finish turning complete; chamfers applied prior to boring.
+  - src: /images/projects/precision-bronze-bushings/2.jpg
+    caption: Oil groove and final bore verification; surface finish checked for consistency.
+  - src: /images/projects/precision-bronze-bushings/3.jpg
+    caption: Completed bushings laid out for final inspection and quality control.
+  - src: /images/projects/precision-bronze-bushings/4.jpg
+    caption: Close-up of machined oil groove and chamfer details.
+  - src: /images/projects/precision-bronze-bushings/5.jpg
+    caption: Batch of bushings ready for packaging and delivery to client.
+  - src: /images/projects/precision-bronze-bushings/6.jpg
+    caption: Surface finish measurement using profilometer to ensure Ra 0.8 µm.
+  - src: /images/projects/precision-bronze-bushings/7.jpg
+    caption: Bushing bore being checked with a precision gauge for diameter accuracy.
+  - src: /images/projects/precision-bronze-bushings/8.jpg
+    caption: Machining setup showing lathe and tooling used for turning operations.
+  - src: /images/projects/precision-bronze-bushings/9.jpg
+    caption: Material stock (phosphor-bronze) prior to machining.
+  - src: /images/projects/precision-bronze-bushings/10.jpg
+    caption: Quality control checklist used to verify all specifications are met.
+  - src: /images/projects/precision-bronze-bushings/11.jpg
+    caption: Team members inspecting finished bushings for defects and consistency.
+  - src: /images/projects/precision-bronze-bushings/12.jpg
+    caption: Packaged bushings ready for shipment to Agrira West Africa Limited.
