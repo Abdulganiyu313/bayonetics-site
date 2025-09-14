@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import styles from "./Project.module.scss";
 import ProjectClient from "./ProjectClient";
+import BackButton from "./BackButton";
 import { getProject, type Project } from "@/lib/content";
 
 type RouteProps = { params: Promise<{ slug: string }> }; // <-- params is async
@@ -18,7 +19,7 @@ export default async function ProjectPage({ params }: RouteProps) {
   const p = await getProject(slug);
   if (!p) return notFound();
 
-  // Safely read optional YAML field without widening your Project type
+  // Optional notes field (if present in YAML)
   const notes = Array.isArray((p as any).notes)
     ? ((p as any).notes as string[])
     : undefined;
@@ -26,6 +27,9 @@ export default async function ProjectPage({ params }: RouteProps) {
   return (
     <div className="container section">
       <div className={styles.wrap}>
+        {/* NEW: back button */}
+        <BackButton />
+
         <header className={styles.head}>
           <h1 className={styles.title}>{p.title}</h1>
           {p.headline ? <p className={styles.headline}>{p.headline}</p> : null}
@@ -43,7 +47,7 @@ export default async function ProjectPage({ params }: RouteProps) {
               src={
                 p.hero.startsWith("/")
                   ? p.hero
-                  : "/images/placeholders/project.jpg"
+                  : "/images/hero/hero-workshop.jpg"
               }
               alt={p.title}
               fill
@@ -53,7 +57,7 @@ export default async function ProjectPage({ params }: RouteProps) {
           </div>
         ) : null}
 
-        {/* NEW: Notes — uses existing styles to avoid layout shifts */}
+        {/* Notes (optional) */}
         {notes?.length ? (
           <section aria-labelledby="notes-heading">
             <h2 id="notes-heading" className={styles.headline}>

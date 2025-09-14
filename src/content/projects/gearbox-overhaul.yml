@@ -1,24 +1,51 @@
 slug: gearbox-overhaul
 title: Gearbox Overhaul & Bearing Replacement
-client: Bottling Plant
+client: Planet Bottling Company
 location: Ogun, Nigeria
 date: 2025-04-03
-summary: Stripped and rebuilt a reduction gearbox with new bearings, seals, and shaft refurbishment.
+summary: Stripped and rebuilt a reduction gearbox with new bearings and shaft refurbishment.
 services: [maintenance-repair, precision-machining]
 outcomes:
-  - Noise and heat reduced significantly
-  - Improved efficiency after run-in
-  - 48-hour turnaround
-hero: https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop
+  - Gearbox stripped, cleaned, and inspected for wear
+  - Worn bearings replaced with new parts
+  - Shaft journals machined to restore surface finish
+  - Reassembled and tested to ensure proper operation
+notes:
+  - We performed a comprehensive overhaul of a reduction gearbox used in a bottling plant. The gearbox was stripped down to its components, which were then cleaned and inspected for wear and damage. Worn bearings were replaced with new, high-quality parts to ensure reliable operation. The shaft journals were machined to restore their surface finish, improving the fit and function of the bearings. After reassembly, the gearbox was tested to verify proper operation and performance.
+  - The project was completed on schedule, minimizing downtime for the client. The refurbished gearbox is expected to provide reliable service for years to come, thanks to the thorough inspection and replacement of critical components.
+  - Our team's expertise in gearbox maintenance and precision machining was crucial in achieving a successful outcome for this project.
+
+hero: /images/projects/gearbox-overhaul/hero.jpg
 images:
-  - https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=1600&auto=format&fit=crop
-  - https://images.unsplash.com/photo-1581091012184-7c54b1837c81?q=80&w=1600&auto=format&fit=crop
-body: |
-  ### Steps
-  - Inspect gears and contact pattern
-  - Replace bearings & seals, re-shim as required
-  - Refinish shaft journal and keyway
-  - Reassemble, fill with oil, run-in, and test
-  ### Notes
-  Delivered over a weekend to minimize downtime. Client reported quieter operation and less heat after run-in
-  period.
+  - /images/projects/gearbox-overhaul/1.jpg
+  - /images/projects/gearbox-overhaul/2.jpg
+  - /images/projects/gearbox-overhaul/3.jpg
+  - /images/projects/gearbox-overhaul/4.jpg
+  - /images/projects/gearbox-overhaul/5.jpg
+  - /images/projects/gearbox-overhaul/6.jpg
+  - /images/projects/gearbox-overhaul/7.jpg
+  - /images/projects/gearbox-overhaul/8.jpg
+  - /images/projects/gearbox-overhaul/9.jpg
+  - /images/projects/gearbox-overhaul/10.jpg
+
+gallery:
+  - src: /images/projects/gearbox-overhaul/1.jpg
+    caption: Gear train exposed during inspection; journal and tooth faces checked for wear.
+  - src: /images/projects/gearbox-overhaul/2.jpg
+    caption: New bearings and seals installed; backlash and preload verified before close-up.
+  - src: /images/projects/gearbox-overhaul/3.jpg
+    caption: Shaft journal surface finish restored via precision machining.
+  - src: /images/projects/gearbox-overhaul/4.jpg
+    caption: Bearing raceways inspected for pitting and wear; replaced as needed.
+  - src: /images/projects/gearbox-overhaul/5.jpg
+    caption: Gearbox components laid out after cleaning and inspection.
+  - src: /images/projects/gearbox-overhaul/6.jpg
+    caption: Reassembly in progress; ensuring proper alignment and torque on fasteners.
+  - src: /images/projects/gearbox-overhaul/7.jpg
+    caption: Final assembly with new gaskets and seals to prevent leaks.
+  - src: /images/projects/gearbox-overhaul/8.jpg
+    caption: Gearbox mounted on test stand; run-in and vibration analysis underway.
+  - src: /images/projects/gearbox-overhaul/9.jpg
+    caption: Vibration spectrum after overhaul showing reduced levels across frequencies.
+  - src: /images/projects/gearbox-overhaul/10.jpg
+    caption: Overhauled gearbox ready for return to service at the bottling plant.

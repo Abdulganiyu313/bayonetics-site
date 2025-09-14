@@ -1,24 +1,43 @@
 slug: custom-sprocket-keyway
 title: Custom Sprocket with Keyway & Hub
-client: Conveyor Upgrade
-location: Lagos, Nigeria
+headline: Precision-machined sprocket with keyed hub for conveyor system
+client: WASIL (West African Soy Industries Limited)
+location: Ogun, Nigeria
 date: 2025-01-30
-summary: Machined hub and keyway, matched to chain pitch, and balanced for smooth operation.
+summary: Manufactured a custom sprocket with machined hub and keyway for a soybean processing plant conveyor.
+
 services: [precision-machining, custom-parts]
 outcomes:
-  - Perfect chain engagement
-  - Reduced belt drift
-  - Delivered with key and set screws
-hero: https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop
+  - Hub and sprocket assembly delivered as a complete unit
+  - Bore keyed with set screws, lightly balanced for smoother rotation
+  - Finished with rust-preventive oil to ensure protection in service
+  - Dimensions verified before shipment; client requested extra units for future use
+
+notes:
+  - We manufactured a custom sprocket with a machined hub and keyway for a conveyor system at a soybean processing plant. The sprocket was designed to match the specific chain pitch used in the client's equipment, ensuring optimal performance and longevity. Our precision machining capabilities allowed us to create a keyed bore with set screws for secure attachment to the shaft, while also lightly balancing the assembly to minimize vibration during operation. The finished sprocket was coated with a rust-preventive oil to protect against corrosion in the plant environment.
+  - The project was completed on schedule, with the sprocket assemblies delivered as complete units ready for installation. The client appreciated the attention to detail and the quality of the machining, which contributed to the reliable operation of their conveyor system.
+  - Our team's expertise in precision machining and custom part fabrication was instrumental in meeting the client's specific requirements and ensuring a successful outcome.
+
+hero: /images/projects/custom-sprocket-keyway/hero.jpg
+
 images:
-  - https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=1600&auto=format&fit=crop
-body: |
-  ### Deliverables
-  - Hub + sprocket assembly
-  - Keyed bore, set screws, light balance
-  - Finished with rust-preventive oil
-  ### Notes
-  - All dimensions verified before shipment
-  - Client requested additional units for future use
-  - Delivered on schedule to meet installation timeline
-  - Client satisfied with fit and finish
+  - /images/projects/custom-sprocket-keyway/1.jpg
+  - /images/projects/custom-sprocket-keyway/2.jpg
+  - /images/projects/custom-sprocket-keyway/3.jpg
+  - /images/projects/custom-sprocket-keyway/4.jpg
+  - /images/projects/custom-sprocket-keyway/5.jpg
+  - /images/projects/custom-sprocket-keyway/6.jpg
+
+gallery:
+  - src: /images/projects/custom-sprocket-keyway/1.jpg
+    caption: Machined sprocket hub with keyed bore and set screw holes, pre-installation.
+  - src: /images/projects/custom-sprocket-keyway/2.jpg
+    caption: Sprocket teeth profile checked against chain pitch gauge for accuracy.
+  - src: /images/projects/custom-sprocket-keyway/3.jpg
+    caption: Final sprocket assembly with hub, ready for balancing.
+  - src: /images/projects/custom-sprocket-keyway/4.jpg
+    caption: Balancing setup on lathe to ensure smooth rotation in service.
+  - src: /images/projects/custom-sprocket-keyway/5.jpg
+    caption: Finished sprocket with rust-preventive oil coating for protection.
+  - src: /images/projects/custom-sprocket-keyway/6.jpg
+    caption: Packaged sprocket assemblies ready for shipment to client.

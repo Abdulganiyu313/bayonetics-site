@@ -5,6 +5,38 @@
   gap: 14px;
 }
 
+/* Back button */
+.backRow {
+  display: flex;
+  justify-content: flex-start;
+}
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid $color-border;
+  background: rgba(255, 255, 255, 0.04);
+  color: $color-text;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    background 150ms ease;
+}
+.backBtn:hover {
+  transform: translateY(-1px);
+  border-color: rgba($color-accent, 0.6);
+  background: rgba($color-accent, 0.14);
+}
+.backBtn:focus-visible {
+  outline: 2px solid rgba($color-accent, 0.9);
+  outline-offset: 2px;
+}
+
 /* Header */
 .head {
   display: grid;
@@ -60,18 +92,14 @@
   background: #0b1222;
 }
 
-/* Caption — higher contrast and readability */
+/* Caption */
 .cap {
   margin: 2px 2px 0;
-  font-size: 14px; /* up from 12px */
+  font-size: 14px;
   line-height: 1.4;
   letter-spacing: 0.1px;
-  /* Use dark text tone for better contrast against light card backgrounds
-     while staying within our tokens (site bg is dark slate). */
-  color: rgba($color-bg, 0.88); /* slate-900 at ~88% */
+  color: rgba($color-bg, 0.88);
 }
-
-/* Prefer even stronger contrast if user requests it */
 @media (prefers-contrast: more) {
   .cap {
     color: rgba($color-bg, 1);
