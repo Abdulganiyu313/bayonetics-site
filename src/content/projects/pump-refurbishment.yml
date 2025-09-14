@@ -3,13 +3,36 @@ title: Pump Refurbishment & Alignment
 client: Process Water System
 location: Ogun, Nigeria
 date: 2025-03-12
-summary: Overhauled centrifugal pump, replaced seals and bearings, and laser-aligned to motor base.
-services: [maintenance-repair]
+summary: Refurbished a centrifugal pump with new seals and bearings, plus laser alignment to motor base.
+services: [maintenance-repair, precision-machining, alignment]
+
 outcomes:
-  - Flow restored to spec
-  - Reduced vibration at duty speed
-  - Lower seal leakage
-hero: https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop
+  - Pump disassembled, cleaned, and inspected for wear
+  - Worn seals and bearings replaced with new parts
+  - Shaft and impeller checked for damage; minor machining performed
+  - Laser alignment to motor base; final shims recorded after hot check
+notes:
+  - We performed a comprehensive refurbishment of a centrifugal pump used in a process water system. The  pump was disassembled, cleaned, and inspected for wear and damage. Worn seals and bearings were replaced with new, high-quality parts to ensure reliable operation. The shaft and impeller were checked for damage, and minor machining was performed to restore proper clearances. Finally, we executed a laser alignment procedure to ensure the pump was properly aligned to the motor base, recording final shim values after a hot check to account for thermal expansion.
+  - The project was completed on schedule, minimizing downtime for the client. The refurbished pump is expected to provide reliable service for years to come, thanks to the thorough inspection and replacement of critical components.
+  - Our team's expertise in pump maintenance and alignment was crucial in achieving a successful outcome for this project.
+
+hero: /images/projects/pump-refurbishment/hero.jpg
+
 images:
-  - https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop
-  - https://images.unsplash.com/photo-1532634896-26909d0d4b6a?q=80&w=1600&auto=format&fit=crop
+  - /images/projects/pump-refurbishment/1.jpg
+  - /images/projects/pump-refurbishment/2.jpg
+  - /images/projects/pump-refurbishment/3.jpg
+  - /images/projects/pump-refurbishment/4.jpg
+  - /images/projects/pump-refurbishment/5.jpg
+
+gallery:
+  - src: /images/projects/pump-refurbishment/1.jpg
+    caption: Pump disassembled for inspection; seal faces and bearing seats checked.
+  - src: /images/projects/pump-refurbishment/2.jpg
+    caption: Laser alignment to motor base; final shims recorded after hot check.
+  - src: /images/projects/pump-refurbishment/3.jpg
+    caption: Shaft and impeller checked for damage; minor machining performed.
+  - src: /images/projects/pump-refurbishment/4.jpg
+    caption: New seals and bearings installed; clearances verified before close-up.
+  - src: /images/projects/pump-refurbishment/5.jpg
+    caption: Reassembly in progress; ensuring proper alignment and torque on fasteners.
