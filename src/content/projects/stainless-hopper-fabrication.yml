@@ -1,22 +1,52 @@
 slug: stainless-hopper-fabrication
 title: Stainless Hopper Fabrication
-client: Food Processing
+headline: Sanitary TIG-welded hopper with smooth seams and reinforced frame
+client: Apple and pears processing line
 location: Ogun, Nigeria
 date: 2024-12-05
 summary: Fabricated a sanitary stainless hopper with TIG welds, smooth seams, and reinforced frame.
-services: [welding-fabrication]
+services: [welding-fabrication, custom-parts, material-sourcing]
+
 outcomes:
-  - Food-safe finishes
-  - Reinforced corners
-  - Installed and tested on line
-hero: https://images.unsplash.com/photo-1565058528608-805f0a4e05ed?q=80&w=1600&auto=format&fit=crop
+  - Custom 304 stainless steel hopper fabricated to spec
+  - TIG-welded joints for strength and hygiene
+  - Brushed finish for easy cleaning and contamination prevention
+  - Installed on-site with verified clearances for tool-less removal
+
+notes:
+  - We fabricated a custom stainless steel hopper for an apple and pears processing line, ensuring compliance with hygiene standards. The hopper was TIG-welded for strength and durability, then finished with a brushed surface to prevent contamination and facilitate cleaning. Our team worked closely with the client to ensure the design met their specific requirements for tool-less access during maintenance, enhancing operational efficiency.
+  - The project was completed on schedule, with the fabricated hopper delivered and installed on site, resulting in improved safety and functionality of the processing line.
+  - Our expertise in stainless steel fabrication and attention to detail ensured a high-quality outcome that met the client's expectations.
+
+# Prefer local hero
+hero: /images/projects/stainless-hopper-fabrication/hero.jpg
+
+# Legacy fallback (safe to keep)
 images:
-  - https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?q=80&w=1600&auto=format&fit=crop
-body: |
-  ### Fabrication
-  - Shear, fold, TIG weld 304 sheet
-  - Grind & polish, fit to frame
-  - Install on line, verify fit & clearance
-  ### Notes
-  Hopper designed for easy cleaning and maintenance with smooth welds and rounded edges. All materials food-grade stainless steel.
-  Finished with a brushed polish to match existing equipment.
+  - /images/projects/stainless-hopper-fabrication/1.jpg
+  - /images/projects/stainless-hopper-fabrication/2.jpg
+  - /images/projects/stainless-hopper-fabrication/3.jpg
+  - /images/projects/stainless-hopper-fabrication/4.jpg
+  - /images/projects/stainless-hopper-fabrication/5.jpg
+  - /images/projects/stainless-hopper-fabrication/6.jpg
+  - /images/projects/stainless-hopper-fabrication/7.jpg
+  - /images/projects/stainless-hopper-fabrication/8.jpg
+
+# Preferred gallery with captions
+gallery:
+  - src: /images/projects/stainless-hopper-fabrication/1.jpg
+    caption: 304 stainless hopper TIG-welded, ground, and brushed to match existing equipment.
+  - src: /images/projects/stainless-hopper-fabrication/2.jpg
+    caption: Hopper frame fabricated from 40x40x3 mm stainless square tubing for strength
+  - src: /images/projects/stainless-hopper-fabrication/3.jpg
+    caption: Hopper outlet with flange for easy connection to downstream equipment.
+  - src: /images/projects/stainless-hopper-fabrication/4.jpg
+    caption: Interior view showing smooth welds and brushed finish for hygiene.
+  - src: /images/projects/stainless-hopper-fabrication/5.jpg
+    caption: Reinforced frame with adjustable feet for leveling on uneven floors.
+  - src: /images/projects/stainless-hopper-fabrication/6.jpg
+    caption: Final fit-up check on the line; clearances verified for tool-less removal.
+  - src: /images/projects/stainless-hopper-fabrication/7.jpg
+    caption: Completed hopper installation with all connections secured.
+  - src: /images/projects/stainless-hopper-fabrication/8.jpg
+    caption: Final inspection and testing of the hopper in operation.
