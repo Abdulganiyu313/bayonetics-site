@@ -24,10 +24,44 @@ export default async function ProjectPage({ params }: RouteProps) {
     ? ((p as any).notes as string[])
     : undefined;
 
+  // --- Breadcrumb JSON-LD (SEO only; no visual change) ---
+  const base = (process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/$/, "");
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${base || ""}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: `${base || ""}/projects`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: p.title,
+        item: `${base || ""}/projects/${p.slug}`,
+      },
+    ],
+  };
+
   return (
     <div className="container section">
+      {/* JSON-LD script */}
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <div className={styles.wrap}>
-        {/* NEW: back button */}
+        {/* Back button */}
         <BackButton />
 
         <header className={styles.head}>

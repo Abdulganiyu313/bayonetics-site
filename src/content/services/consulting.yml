@@ -1,0 +1,11 @@
+slug: consulting
+title: Engineering Consulting
+summary: Practical advisory for reliability, capacity upgrades, line balancing, and compliance—grounded in field experience.
+bullets:
+  - Site audits and reliability assessments
+  - Root-cause failure analysis (RCFA)
+  - Upgrade/retrofit recommendations with cost/benefit
+  - SOPs, safety compliance, and best practices
+hero: /images/services/consulting/hero.jpg
+alt: Engineering consulting and reliability assessment
+tags: [consulting, advisory]

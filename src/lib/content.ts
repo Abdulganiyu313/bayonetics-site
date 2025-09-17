@@ -12,6 +12,9 @@ export type Service = {
   summary: string;
   bullets: string[];
   content?: string;
+  hero?: string; // NEW optional
+  alt?: string; // NEW optional
+  tags?: string[]; // NEW optional
 };
 
 export type Project = {
@@ -25,13 +28,9 @@ export type Project = {
   services?: string[];
   outcomes?: string[];
   hero?: string;
-  // legacy images list (still supported)
-  images?: string[];
-  // preferred gallery with captions
+  images?: string[]; // legacy
   gallery?: { src: string; caption?: string }[];
-  // optional notes block
   notes?: string[];
-  // optional markdown body (if you use it)
   body?: string;
 };
 
@@ -78,7 +77,10 @@ function normalizeService(input: any, file: string): Service {
   const summary = typeof input.summary === "string" ? input.summary : "";
   const bullets = Array.isArray(input.bullets) ? input.bullets.map(String) : [];
   const content = typeof input.content === "string" ? input.content : undefined;
-  return { slug, title, summary, bullets, content };
+  const hero = typeof input.hero === "string" ? input.hero : undefined;
+  const alt = typeof input.alt === "string" ? input.alt : undefined;
+  const tags = Array.isArray(input.tags) ? input.tags.map(String) : undefined;
+  return { slug, title, summary, bullets, content, hero, alt, tags };
 }
 
 function normalizeProject(input: any, file: string): Project {
@@ -87,7 +89,6 @@ function normalizeProject(input: any, file: string): Project {
   const title =
     (typeof input.title === "string" && input.title) || "Untitled Project";
 
-  // Keep legacy images AND preferred gallery; synthesize gallery from images if needed
   const images: string[] | undefined = Array.isArray(input.images)
     ? input.images.map(String)
     : undefined;
@@ -135,7 +136,6 @@ function normalizeProject(input: any, file: string): Project {
 }
 
 function sortProjectsByDateDesc(a: Project, b: Project) {
-  // push undated items to the bottom
   const da = a.date ? Date.parse(a.date) : NaN;
   const db = b.date ? Date.parse(b.date) : NaN;
   if (isNaN(da) && isNaN(db)) return a.title.localeCompare(b.title);
@@ -149,7 +149,6 @@ function sortProjectsByDateDesc(a: Project, b: Project) {
 export async function getServices(): Promise<Service[]> {
   const docs = await readYamlDir(SERVICES_DIR);
   const items = docs.map((d) => normalizeService(d.data, d.file));
-  // Sort by title for stable UI anchors
   return items.sort((a, b) => a.title.localeCompare(b.title));
 }
 

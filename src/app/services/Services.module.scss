@@ -1,131 +1,199 @@
 @use "../../styles/tokens.scss" as *;
 
-.page {
-  padding: 24px 0;
+.wrap {
+  display: grid;
+  gap: 16px;
+  color: $color-text;
 }
+
 .header {
-  padding: 8px 0 18px;
+  display: grid;
+  gap: 6px;
   border-bottom: 1px solid $color-border;
+  padding-bottom: 10px;
 }
+
 .title {
   margin: 0;
-  font-size: clamp(26px, 3.2vw, 38px);
-  letter-spacing: 0.2px;
-}
-.sub {
-  margin: 8px 0 0;
-  opacity: 0.9;
-  max-width: 72ch;
-}
-.breadcrumbs {
-  margin: 8px 0 6px;
-  opacity: 0.8;
-  font-size: 12px;
-  a:hover {
-    text-decoration: underline;
-  }
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
 }
 
-.list {
-  display: grid;
-  gap: 18px;
-  padding-top: 18px;
-}
-
-.section {
-  border: 1px solid $color-border;
-  border-radius: $radius;
-  background: $color-surface;
-  padding: 18px;
-  scroll-margin-top: 96px;
-  box-shadow: $shadow;
-}
-
-.sectionHeader {
-  display: grid;
-  gap: 4px;
-}
-.h2 {
+.lede {
   margin: 0;
-  font-size: clamp(18px, 2.6vw, 24px);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.icon {
-  width: 22px;
-  height: 22px;
-  color: $color-accent;
-}
-.summary {
-  margin: 0;
-  opacity: 0.92;
+  color: rgba($color-text, 0.9);
 }
 
-.metaRow {
+/* Filters */
+.filters {
+  position: sticky;
+  top: 64px;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 10px 0 2px;
+  padding: 10px 0;
+  border-bottom: 1px solid $color-border;
+  background: linear-gradient(
+    180deg,
+    rgba($color-bg, 0.95),
+    rgba($color-bg, 0.85)
+  );
+  backdrop-filter: saturate(1.05) blur(6px);
 }
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+
+.chip,
+.chipActive {
+  appearance: none;
+  border: 1px solid $color-border;
+  background: rgba(255, 255, 255, 0.03);
+  color: $color-text;
   padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(14, 138, 131, 0.1);
-  border: 1px solid rgba(14, 138, 131, 0.35);
-  font-size: 12px;
+  border-radius: $radius;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease;
+}
+.chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba($color-text, 0.18);
+}
+.chipActive {
+  background: rgba($color-accent, 0.14);
+  border-color: rgba($color-accent, 0.6);
 }
 
-.long {
-  margin-top: 8px;
-}
-.bottomRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   gap: 12px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-.cta {
-  background: $color-accent;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-}
-.note {
-  opacity: 0.65;
-  font-size: 12px;
 }
 
-/* Bottom FAQ block */
-.faqBlock {
-  margin-top: 18px;
+.card {
+  grid-column: span 12;
+  @media (min-width: 640px) {
+    grid-column: span 6;
+  }
+  @media (min-width: 1024px) {
+    grid-column: span 4;
+  }
   border: 1px solid $color-border;
   border-radius: $radius;
-  background: $color-surface;
-  padding: 16px;
-  box-shadow: $shadow;
+  overflow: clip;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
 }
-.faqBlock h3 {
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba($color-accent, 0.55);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba($color-accent, 0.35);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #111827;
+}
+.media :global(img) {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  gap: 4px;
+  padding: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.cardSummary {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba($color-text, 0.9);
+}
+
+/* Details (anchored) */
+.details {
+  display: grid;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.detail {
+  scroll-margin-top: 90px;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.detailTitle {
   margin: 0 0 8px;
+  font-size: clamp(18px, 2.4vw, 24px);
 }
-.faqList {
+
+.detailBody {
+  display: grid;
+  gap: 10px;
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 2fr;
+    gap: 14px;
+  }
+}
+
+.detailHero {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: $radius;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  background: #0b1222;
+}
+.detailHero :global(img) {
+  object-fit: cover;
+}
+
+.detailText {
+  display: grid;
+  gap: 8px;
+}
+
+.summary {
+  margin: 0;
+  color: rgba($color-text, 0.95);
+}
+
+.bullets {
   margin: 0;
   padding-left: 18px;
 }
-.faqList li {
-  margin: 6px 0;
+
+.bodyMd :global(p) {
+  margin: 0 0 8px;
 }
-/* Accent markers for lists */
-.section ul {
-  list-style: disc;
-}
-.section li::marker {
-  color: $color-accent;
+.bodyMd :global(ul) {
+  margin: 0;
+  padding-left: 18px;
 }
