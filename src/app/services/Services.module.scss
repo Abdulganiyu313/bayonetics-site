@@ -81,6 +81,10 @@
   @media (min-width: 1024px) {
     grid-column: span 4;
   }
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+
   border: 1px solid $color-border;
   border-radius: $radius;
   overflow: clip;
@@ -109,29 +113,31 @@
   object-fit: cover;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: end;
-  gap: 4px;
-  padding: 10px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 40%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
+/* Solid card body under the image for guaranteed contrast */
+.cardBody {
+  padding: 10px 12px 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border-top: 1px solid $color-border;
 }
 
 .cardTitle {
-  margin: 0;
+  margin: 0 0 4px;
   font-size: 1.05rem;
   font-weight: 700;
+  color: $color-text;
 }
+
 .cardSummary {
   margin: 0;
   font-size: 0.9rem;
   color: rgba($color-text, 0.9);
+
+  /* Clamp to two lines (standard + WebKit fallback) */
+  line-clamp: 2; /* ✅ standard property */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* fallback */
+  -webkit-box-orient: vertical; /* fallback */
+  overflow: hidden;
 }
 
 /* Details (anchored) */

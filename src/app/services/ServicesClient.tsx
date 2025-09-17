@@ -63,12 +63,13 @@ export default function ServicesClient({ services }: { services: Service[] }) {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                 priority={false}
               />
-              <div className={styles.overlay}>
-                <h3 className={styles.cardTitle}>{s.title}</h3>
-                {s.summary ? (
-                  <p className={styles.cardSummary}>{s.summary}</p>
-                ) : null}
-              </div>
+            </div>
+
+            <div className={styles.cardBody}>
+              <h3 className={styles.cardTitle}>{s.title}</h3>
+              {s.summary ? (
+                <p className={styles.cardSummary}>{s.summary}</p>
+              ) : null}
             </div>
           </a>
         ))}
