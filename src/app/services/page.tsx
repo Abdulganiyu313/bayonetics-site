@@ -2,13 +2,13 @@ import styles from "./Services.module.scss";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getServices, type Service } from "@/lib/content";
-import ServicesClient from "./ServicesClient"; // ⬅️ use separate client file
+import { getServices } from "@/lib/content";
+import ServicesClient from "./ServicesClient";
 
 export const metadata = {
   title: "Services | Bayonetics Engineering",
   description:
-    "Industrial maintenance, fabrication, precision machining, procurement, consulting, training, and plant maintenance schedules.",
+    "Industrial maintenance, fabrication, precision machining, procurement, consulting, training, and planned maintenance.",
 };
 
 export default async function ServicesPage() {
@@ -29,15 +29,18 @@ export default async function ServicesPage() {
 
   return (
     <div className="container section">
+      {/* SEO: Service list JSON-LD */}
       <script
         type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       <div className={styles.wrap}>
         <header className={styles.header}>
           <h1 className={styles.title}>Services</h1>
           <p className={styles.lede}>
-            Field-tested services for dependable operations—maintenance &
+            Field-tested services for dependable operations—maintenance &amp;
             repair, fabrication, precision machining, procurement, consulting,
             training, and planned maintenance.
           </p>
@@ -46,7 +49,7 @@ export default async function ServicesPage() {
         {/* Visual grid + filters (client component) */}
         <ServicesClient services={services} />
 
-        {/* Anchored details (server-rendered) */}
+        {/* Anchored details */}
         <section className={styles.details}>
           {services.map((s) => (
             <article
@@ -95,6 +98,17 @@ export default async function ServicesPage() {
                       </ReactMarkdown>
                     </div>
                   ) : null}
+
+                  {/* NEW: CTA */}
+                  <div className={styles.ctaRow}>
+                    <a
+                      className={styles.ctaBtn}
+                      href={`/contact?service=${encodeURIComponent(s.slug)}`}
+                      aria-label={`Request a quote for ${s.title}`}
+                    >
+                      Request a Quote for {s.title}
+                    </a>
+                  </div>
                 </div>
               </div>
             </article>

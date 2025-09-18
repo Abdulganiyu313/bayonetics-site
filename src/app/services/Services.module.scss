@@ -133,10 +133,10 @@
   color: rgba($color-text, 0.9);
 
   /* Clamp to two lines (standard + WebKit fallback) */
-  line-clamp: 2; /* ✅ standard property */
+  line-clamp: 2;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* fallback */
-  -webkit-box-orient: vertical; /* fallback */
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
@@ -202,4 +202,32 @@
 .bodyMd :global(ul) {
   margin: 0;
   padding-left: 18px;
+}
+
+/* === NEW: CTA styles === */
+.ctaRow {
+  margin-top: 10px;
+}
+
+.ctaBtn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: $color-accent;
+  border: 1px solid transparent;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background 140ms ease;
+}
+.ctaBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+}
+.ctaBtn:focus-visible {
+  outline: 2px solid rgba($color-accent, 0.9);
+  outline-offset: 2px;
 }

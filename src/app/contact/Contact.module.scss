@@ -65,3 +65,142 @@
   margin: 0;
   opacity: 0.7;
 }
+.banner {
+  margin: 8px 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid $color-border;
+  background: rgba(255, 255, 255, 0.04);
+  color: $color-text;
+}
+/* Layout helpers for the form */
+.form {
+  display: grid;
+  gap: 12px;
+}
+.row {
+  display: grid;
+  gap: 10px;
+}
+@media (min-width: 720px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .fieldWide {
+    grid-column: 1 / -1;
+  }
+}
+.field,
+.fieldWide {
+  display: grid;
+  gap: 6px;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.input,
+.select,
+.textarea,
+.file {
+  width: 100%;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: rgba(255, 255, 255, 0.02);
+  color: $color-text;
+  padding: 10px 12px;
+}
+.textarea {
+  resize: vertical;
+}
+
+.help {
+  font-size: 0.9rem;
+  color: rgba($color-text, 0.8);
+}
+
+/* Files list */
+.fileList {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+.fileItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid $color-border;
+  border-radius: calc($radius - 2px);
+  background: rgba(255, 255, 255, 0.02);
+}
+.fileName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fileSize {
+  color: rgba($color-text, 0.8);
+  font-size: 0.9rem;
+}
+
+/* Submit */
+.submitRow {
+  margin-top: 6px;
+}
+.submit {
+  background: $color-accent;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease;
+}
+.submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+}
+.submit:focus-visible {
+  outline: 2px solid rgba($color-accent, 0.9);
+  outline-offset: 2px;
+}
+.alertError {
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  background: rgba(255, 0, 0, 0.12);
+  color: $color-text;
+}
+
+.checkboxRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+/* Keep full-width fields left-aligned */
+.fieldWide {
+  justify-items: start;
+}
+
+/* Neat inline checkbox with brand accent */
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.checkboxRow input[type="checkbox"] {
+  margin: 0;
+  inline-size: 16px;
+  block-size: 16px;
+  accent-color: $color-accent;
+}

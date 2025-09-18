@@ -1,41 +1,43 @@
-import { getServices } from "@/lib/content";
-import ContactForm from "./Form";
+import Form from "./Form";
 import styles from "./Contact.module.scss";
-import MapEmbed from "@/components/sections/MapEmbed";
+import { getServices } from "@/lib/content";
 
-const ADDRESS =
-  "Kajola Junction, Beside Apple & Pears Company, Along Muhammadu Buhari Expressway, Ogun State, Nigeria";
+type RouteProps = {
+  // In Next.js 15 server components, searchParams is async
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
-const BAYONETICS = { lat: 6.87, lng: 3.25 };
+export const metadata = {
+  title: "Request a Quote | Bayonetics Engineering",
+  description:
+    "Send your RFQ with drawings/photos. We’ll get right back to you.",
+};
 
-export const metadata = { title: "Request a Quote – Bayonetics Engineering" };
+export default async function ContactPage({ searchParams }: RouteProps) {
+  const services = await getServices();
+  const sp = await searchParams; // <-- await it
 
-const EMAIL = "mail.bayonetics@gmail.com";
-const WHATSAPP = "2348161660213";
-
-export default async function ContactPage() {
-  const services = (await getServices()).map((s) => ({
-    slug: s.slug,
-    title: s.title,
-  }));
+  const selectedSlug =
+    typeof sp?.service === "string" ? (sp.service as string) : undefined;
 
   return (
     <div className="container section">
-      <h1>Request a Quote</h1>
-      <p>
-        Kajola Junction, Beside Apple &amp; Pears Company, Along Muhammadu
-        Buhari Expressway, Ogun State, Nigeria
-        <br />
-        Tel: +234 816 166 0213 · +234 811 778 8403 · Email: {EMAIL}
-      </p>
-      <ContactForm services={services} email={EMAIL} whatsapp={WHATSAPP} />
-      <MapEmbed
-        title="Visit Us"
-        coords={BAYONETICS}
-        label="Bayonetics Engineering, Kajola Junction"
-        zoom={16}
-        compact
-      />
+      <div className={styles.wrap}>
+        <header className={styles.head}>
+          <h1 className={styles.title}>Request a Quote</h1>
+          <p className={styles.lede}>
+            Tell us about your job and we’ll get right back to you.
+          </p>
+        </header>
+
+        {selectedSlug ? (
+          <div className={styles.banner} role="status" aria-live="polite">
+            <strong>Selected service:</strong> {selectedSlug.replace(/-/g, " ")}
+          </div>
+        ) : null}
+
+        <Form services={services} selectedSlug={selectedSlug} />
+      </div>
     </div>
   );
 }
