@@ -9,6 +9,8 @@ export const metadata = {
   title: "Services | Bayonetics Engineering",
   description:
     "Industrial maintenance, fabrication, precision machining, procurement, consulting, training, and planned maintenance.",
+  // canonical for this page
+  alternates: { canonical: "/services" },
 };
 
 export default async function ServicesPage() {
@@ -21,7 +23,23 @@ export default async function ServicesPage() {
     name: s.title,
     item: `${base || ""}/services#${s.slug}`,
   }));
-  const jsonLd = {
+
+  // Per-service JSON-LD
+  const provider = base
+    ? { "@type": "Organization", name: "Bayonetics Engineering", url: base }
+    : { "@type": "Organization", name: "Bayonetics Engineering" };
+
+  const servicesLd = services.map((s) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: s.title,
+    description: s.summary || undefined,
+    areaServed: "NG", // Nigeria; adjust if you prefer a broader area
+    provider,
+    url: `${base || ""}/services#${s.slug}`,
+  }));
+
+  const itemListLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: itemList,
@@ -29,12 +47,22 @@ export default async function ServicesPage() {
 
   return (
     <div className="container section">
-      {/* SEO: Service list JSON-LD */}
+      {/* JSON-LD: ItemList + each Service */}
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(itemListLd),
+        }}
       />
+      {servicesLd.map((obj, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(obj) }}
+        />
+      ))}
 
       <div className={styles.wrap}>
         <header className={styles.header}>
@@ -46,7 +74,7 @@ export default async function ServicesPage() {
           </p>
         </header>
 
-        {/* Visual grid + filters (client component) */}
+        {/* Visual grid + filters */}
         <ServicesClient services={services} />
 
         {/* Anchored details */}
@@ -99,7 +127,6 @@ export default async function ServicesPage() {
                     </div>
                   ) : null}
 
-                  {/* NEW: CTA */}
                   <div className={styles.ctaRow}>
                     <a
                       className={styles.ctaBtn}

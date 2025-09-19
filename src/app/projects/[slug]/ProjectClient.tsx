@@ -1,95 +1,122 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Project.module.scss";
 import type { Project } from "@/lib/content";
 
 type Props = { project: Project };
 
+type Pic = { src: string; caption?: string };
+
 export default function ProjectClient({ project }: Props) {
+  // Normalize gallery (support legacy `images`)
+  const pics: Pic[] =
+    (project.gallery && project.gallery.length
+      ? project.gallery.map((g) => ({ src: g.src, caption: g.caption }))
+      : (project.images || []).map((src) => ({ src, caption: undefined }))) ||
+    [];
+
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState<{
-    src: string;
-    caption?: string;
-  } | null>(null);
+  const [idx, setIdx] = useState(0);
 
-  const gallery: { src: string; caption?: string }[] =
-    project.gallery ??
-    (project.images ? project.images.map((src) => ({ src })) : []);
+  function openAt(i: number) {
+    setIdx(i);
+    setOpen(true);
+  }
+  function close() {
+    setOpen(false);
+  }
 
-  const imgOrFallback = (src?: string) =>
-    src && src.startsWith("/") ? src : "/images/placeholders/project.jpg";
+  // Close on ESC
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") setIdx((i) => (i + 1) % pics.length);
+      if (e.key === "ArrowLeft")
+        setIdx((i) => (i - 1 + pics.length) % pics.length);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, pics.length]);
+
+  if (!pics.length) return null;
 
   return (
     <>
-      {/* Gallery with captions */}
-      {gallery.length ? (
-        <div className={styles.gallery}>
-          {gallery.map((g, i) => (
+      {/* Gallery grid */}
+      <section className={styles.gallery} aria-label="Project gallery">
+        {pics.map((p, i) => {
+          const alt = p.caption?.trim() || `${project.title} – photo ${i + 1}`;
+          return (
             <figure key={i} className={styles.fig}>
-              <button
+              <div
                 className={styles.thumb}
-                onClick={() => {
-                  setActive(g);
-                  setOpen(true);
+                role="button"
+                tabIndex={0}
+                aria-label={`Open image ${i + 1}: ${alt}`}
+                onClick={() => openAt(i)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") openAt(i);
                 }}
-                aria-label="Open image"
               >
                 <Image
-                  src={imgOrFallback(g.src)}
-                  alt={g.caption || `Image ${i + 1}`}
+                  src={p.src.startsWith("/") ? p.src : p.src}
+                  alt={alt}
                   fill
-                  sizes="(max-width: 900px) 100vw, 400px"
-                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-              </button>
-              {g.caption ? (
-                <figcaption className={styles.cap}>{g.caption}</figcaption>
-              ) : null}
-            </figure>
-          ))}
-        </div>
-      ) : null}
+              </div>
 
-      {/* Outcomes */}
-      {project.outcomes?.length ? (
-        <>
-          <h3 style={{ marginTop: 12 }}>Outcomes</h3>
-          <ul className={styles.outcomes}>
-            {project.outcomes.map((o, i) => (
-              <li key={i}>{o}</li>
-            ))}
-          </ul>
-        </>
-      ) : null}
+              {/* Solid caption bar below image for readability */}
+              <figcaption className={styles.capBlock}>
+                <span className={styles.capTxt}>
+                  {p.caption || "Untitled image"}
+                </span>
+              </figcaption>
+            </figure>
+          );
+        })}
+      </section>
 
       {/* Lightbox modal */}
       <div
         className={`${styles.modal} ${open ? styles.open : ""}`}
+        aria-hidden={!open}
         role="dialog"
-        aria-modal="true"
-        onClick={() => setOpen(false)}
+        aria-label="Image preview"
+        onClick={close}
       >
-        <div className={styles.modalImg} onClick={(e) => e.stopPropagation()}>
-          {active ? (
-            <>
-              <Image
-                src={active.src}
-                alt={active.caption || "Large"}
-                fill
-                sizes="100vw"
-                style={{ objectFit: "contain", background: "#000" }}
-              />
-              {active.caption ? (
-                <div className={styles.capModal}>{active.caption}</div>
-              ) : null}
-            </>
-          ) : null}
-          <button className={styles.closeBtn} onClick={() => setOpen(false)}>
-            Close
-          </button>
-        </div>
+        {open && (
+          <div
+            className={styles.modalImg}
+            onClick={(e) => e.stopPropagation()}
+            role="document"
+          >
+            <Image
+              src={pics[idx].src}
+              alt={pics[idx].caption || `${project.title} – photo ${idx + 1}`}
+              fill
+              sizes="100vw"
+            />
+            <div className={styles.capModal}>
+              <span className={styles.capModalTxt}>
+                {pics[idx].caption || ""}
+              </span>
+              <span className={styles.capModalIndex}>
+                {idx + 1} / {pics.length}
+              </span>
+            </div>
+            <button
+              className={styles.closeBtn}
+              onClick={close}
+              aria-label="Close preview"
+            >
+              ×
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

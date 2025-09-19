@@ -16,7 +16,9 @@ export default async function ProjectsPage() {
       <header className={styles.header}>
         <h1 className={styles.title}>Projects</h1>
         <p className={styles.sub}>
-          Recent work and case studies. Swap images with your own when ready.
+          Proof of work from the shop floor and on-site precision machining,
+          fabrication, and dependable maintenance. Explore case studies to see
+          our approach, outcomes, and turnaround.
         </p>
       </header>
 

@@ -191,8 +191,10 @@ export default function Form({ services, selectedSlug }: Props) {
         {/* Send me a copy */}
         <div className={styles.row}>
           <div className={styles.fieldWide}>
-            <label className={styles.checkboxRow}>
+            <label htmlFor="sendcopy" className={styles.checkboxRow}>
               <input
+                id="sendcopy"
+                name="sendcopy"
                 type="checkbox"
                 checked={sendCopy}
                 onChange={(e) => setSendCopy(e.target.checked)}

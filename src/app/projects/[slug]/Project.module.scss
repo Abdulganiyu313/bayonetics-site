@@ -5,43 +5,11 @@
   gap: 14px;
 }
 
-/* Back button */
-.backRow {
-  display: flex;
-  justify-content: flex-start;
-}
-.backBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid $color-border;
-  background: rgba(255, 255, 255, 0.04);
-  color: $color-text;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 1;
-  transition:
-    transform 150ms ease,
-    border-color 150ms ease,
-    background 150ms ease;
-}
-.backBtn:hover {
-  transform: translateY(-1px);
-  border-color: rgba($color-accent, 0.6);
-  background: rgba($color-accent, 0.14);
-}
-.backBtn:focus-visible {
-  outline: 2px solid rgba($color-accent, 0.9);
-  outline-offset: 2px;
-}
-
 /* Header */
 .head {
   display: grid;
   gap: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid $color-border;
   padding-bottom: 10px;
 }
 .title {
@@ -52,7 +20,7 @@
   margin: 0;
   font-weight: 700;
   opacity: 0.95;
-} /* one-liner under title */
+}
 .meta {
   margin: 0;
   opacity: 0.9;
@@ -66,48 +34,66 @@
 .hero {
   position: relative;
   height: 320px;
-  border-radius: 12px;
+  border-radius: $radius;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid $color-border;
   background: #0b1222;
 }
 
-/* Gallery */
+/* ===== Gallery (cards with solid caption) ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
 }
+
 .fig {
   display: grid;
-  gap: 6px;
+  grid-template-rows: auto auto;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
 }
+.fig:hover {
+  transform: translateY(-3px);
+  border-color: rgba($color-accent, 0.55);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba($color-accent, 0.3);
+}
+
 .thumb {
   position: relative;
   aspect-ratio: 4/3;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  cursor: zoom-in;
   background: #0b1222;
+  cursor: zoom-in;
+}
+.thumb :global(img) {
+  object-fit: cover;
 }
 
-/* Caption */
-.cap {
-  margin: 2px 2px 0;
-  font-size: 14px;
-  line-height: 1.4;
-  letter-spacing: 0.1px;
-  color: rgba($color-bg, 0.88);
+/* Caption block like Services cards */
+.capBlock {
+  padding: 8px 10px;
+  border-top: 1px solid $color-border;
+  background: rgba(0, 0, 0, 0.3);
 }
-@media (prefers-contrast: more) {
-  .cap {
-    color: rgba($color-bg, 1);
-    font-weight: 600;
-  }
+.capTxt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* webkit clamp */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 2; /* standard clamp (VSCode warns but harmless) */
+  font-size: 13px;
+  color: #cbd5e1;
 }
 
-/* Lightbox */
+/* ===== Lightbox ===== */
 .modal {
   position: fixed;
   inset: 0;
@@ -117,33 +103,52 @@
   justify-content: center;
   z-index: 60;
 }
-.modal.open {
+.open {
   display: flex;
 }
+
 .modalImg {
   position: relative;
   width: min(96vw, 1200px);
   height: min(86vh, 860px);
-  border-radius: 12px;
+  border-radius: $radius;
   overflow: hidden;
   background: #000;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+.modalImg :global(img) {
+  object-fit: contain;
+  background: #000;
+}
+
+/* Solid caption bar in modal with index on the right */
 .capModal {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
-  padding: 12px 14px;
+  padding: 10px 12px;
+}
+.capModalTxt {
   font-size: 14px;
 }
+.capModalIndex {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
 .closeBtn {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.55);
   color: #fff;
   border: 0;
   border-radius: 999px;
@@ -152,6 +157,7 @@
   cursor: pointer;
 }
 
+/* Outcomes list (unchanged) */
 .outcomes {
   margin: 0;
   padding-left: 18px;

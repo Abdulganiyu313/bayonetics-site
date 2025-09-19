@@ -192,15 +192,26 @@
   justify-items: start;
 }
 
-/* Neat inline checkbox with brand accent */
+/* Keep full-width fields left-aligned */
+.fieldWide {
+  justify-items: start;
+}
+
+/* Checkbox + text on one line, box first */
 .checkboxRow {
-  display: flex;
+  display: inline-flex; /* inline so it doesn’t span the full row */
   align-items: center;
   gap: 8px;
+  margin: 0; /* avoid extra top spacing */
+  line-height: 1.2;
 }
 .checkboxRow input[type="checkbox"] {
   margin: 0;
   inline-size: 16px;
   block-size: 16px;
-  accent-color: $color-accent;
+  vertical-align: middle;
+  accent-color: $color-accent; /* brand color */
+}
+.checkboxRow span {
+  font-weight: 700; /* matches other labels visually */
 }

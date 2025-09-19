@@ -5,6 +5,12 @@ import CTA from "@/components/sections/CTA";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import MapEmbed from "@/components/sections/MapEmbed";
 
+export const metadata = {
+  title: "Bayonetics Engineering",
+  description:
+    "Precision machining, fabrication, and dependable maintenance for industry in Ogun and across Nigeria.",
+  alternates: { canonical: "/" },
+};
 const BAYONETICS = { lat: 6.87, lng: 3.25 };
 
 export default function Home() {
