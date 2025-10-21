@@ -3,17 +3,28 @@
 import Link from "next/link";
 import styles from "./TopBar.module.scss";
 import { Mail, Phone } from "lucide-react";
+import { waLink, telLink, SITE } from "@/lib/site";
 
-type Props = { variant?: "default" | "footer" }; // ✅ new
+type Props = { variant?: "default" | "footer" };
 
-/** Edit these once and they update everywhere */
 const LINKS = {
   facebook: "https://www.facebook.com/BayoneticsEngineering",
   youtube: "https://www.youtube.com/@Bayonetics",
   linkedin: "https://www.linkedin.com/company/bayonetics-engineering",
   email: "mail.bayonetics@gmail.com",
-  phone: "+2348161660213",
 };
+
+// Simple WhatsApp glyph (keeps same .icon styling)
+function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fill="currentColor"
+        d="M20.52 3.48A11.94 11.94 0 0 0 12.01 0C5.39 0 .02 5.37.02 11.99c0 2.11.55 4.17 1.6 6L0 24l6.17-1.6a12 12 0 0 0 5.84 1.51h.01c6.62 0 11.99-5.37 11.99-11.99 0-3.2-1.25-6.21-3.49-8.45ZM12.02 22a9.93 9.93 0 0 1-5.05-1.39l-.36-.21-3.66.95.98-3.56-.24-.37A9.94 9.94 0 0 1 2.08 12C2.08 6.93 6.95 2.06 12.02 2.06c2.66 0 5.15 1.04 7.02 2.92a9.86 9.86 0 0 1 2.92 7.02c0 5.07-4.87 9.94-9.94 9.94Zm5.46-7.35c-.3-.15-1.76-.87-2.03-.98-.27-.1-.47-.15-.66.15-.2.3-.76.98-.93 1.18-.17.2-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.5-1.76-1.67-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.66-1.6-.9-2.2-.24-.57-.48-.49-.66-.5h-.56c-.2 0-.53.07-.8.38-.27.3-1.06 1.03-1.06 2.52 0 1.49 1.09 2.93 1.25 3.13.15.2 2.15 3.28 5.2 4.47.73.31 1.31.49 1.76.62.74.24 1.41.21 1.94.13.59-.09 1.76-.72 2.01-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35Z"
+      />
+    </svg>
+  );
+}
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -47,6 +58,9 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export default function TopBar({ variant = "default" }: Props) {
+  // Display number without leading plus in the pill
+  const displayPhone = SITE.PHONE_E164.replace(/^\+/, "");
+
   return (
     <div
       className={`${styles.topbar} ${variant === "footer" ? styles.inFooter : ""}`}
@@ -84,18 +98,35 @@ export default function TopBar({ variant = "default" }: Props) {
               <LinkedinIcon className={styles.icon} />
             </Link>
           </li>
+
+          {/* WhatsApp icon */}
+          <li className={styles.cell}>
+            <a
+              href={waLink()}
+              aria-label="Chat on WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon className={styles.icon} />
+            </a>
+          </li>
+
+          {/* Email icon */}
           <li className={styles.cell}>
             <a href={`mailto:${LINKS.email}`} aria-label="Email">
               <Mail className={styles.icon} />
             </a>
           </li>
 
+          {/* Phone pill */}
           <li className={`${styles.cell} ${styles.phone}`}>
-            <a href={`tel:${LINKS.phone}`} className={styles.phoneLink}>
+            <a
+              href={telLink}
+              className={styles.phoneLink}
+              aria-label={`Call ${displayPhone}`}
+            >
               <Phone className={styles.phoneIcon} />
-              <span className={styles.phoneText}>
-                {LINKS.phone.replace("+", "")}
-              </span>
+              <span className={styles.phoneText}>{displayPhone}</span>
             </a>
           </li>
         </ul>
