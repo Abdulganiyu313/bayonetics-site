@@ -1,32 +1,74 @@
 "use client";
 
-import Image from "next/image";
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import styles from "./Services.module.scss";
 import type { Service } from "@/lib/content";
 
+/**
+ * Client-only grid with filtering chips.
+ * This version is defensive: no assumptions about tags, hero, or bullets.
+ */
 export default function ServicesClient({ services }: { services: Service[] }) {
+  // Build a small, safe tag set. Prefer explicit tags, otherwise derive from titles.
   const allTags = useMemo(() => {
     const set = new Set<string>();
-    services.forEach((s) => (s.tags || []).forEach((t) => set.add(t)));
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
+
+    services.forEach((s) => {
+      const fromYaml = Array.isArray(s.tags) ? s.tags : [];
+      fromYaml.forEach((t) => t && set.add(String(t).toLowerCase()));
+
+      // Fallbacks: split the title into a couple of keywords
+      if (!fromYaml.length && s.title) {
+        s.title
+          .toLowerCase()
+          .split(/[\s/,&]+/)
+          .filter(Boolean)
+          .slice(0, 2)
+          .forEach((w) => set.add(w));
+      }
+    });
+
+    const out = Array.from(set);
+    out.sort((a, b) => a.localeCompare(b));
+    return out;
   }, [services]);
 
-  const [tag, setTag] = useState<string | null>(null);
+  const [active, setActive] = useState<string>("");
 
   const filtered = useMemo(() => {
-    if (!tag) return services;
-    return services.filter((s) => (s.tags || []).includes(tag));
-  }, [services, tag]);
+    if (!active) return services;
+    const needle = active.toLowerCase();
+    return services.filter((s) => {
+      const tags = (s.tags || []).map((t) => t.toLowerCase());
+      const inTags = tags.includes(needle);
+      const inTitle = (s.title || "").toLowerCase().includes(needle);
+      const inSummary = (s.summary || "").toLowerCase().includes(needle);
+      return inTags || inTitle || inSummary;
+    });
+  }, [active, services]);
+
+  if (!services || services.length === 0) {
+    // Render a tiny placeholder instead of throwing
+    return (
+      <p className={styles.lede} role="status" aria-live="polite">
+        No services to display yet.
+      </p>
+    );
+  }
 
   return (
     <>
-      <div className={styles.filters} aria-label="Filter services">
+      {/* Filter chips */}
+      <div
+        className={styles.filters}
+        role="toolbar"
+        aria-label="Filter services"
+      >
         <button
           type="button"
-          className={!tag ? styles.chipActive : styles.chip}
-          aria-pressed={!tag}
-          onClick={() => setTag(null)}
+          className={`${styles.chip} ${!active ? styles.active : ""}`}
+          onClick={() => setActive("")}
         >
           All
         </button>
@@ -34,44 +76,45 @@ export default function ServicesClient({ services }: { services: Service[] }) {
           <button
             key={t}
             type="button"
-            className={tag === t ? styles.chipActive : styles.chip}
-            aria-pressed={tag === t}
-            onClick={() => setTag((prev) => (prev === t ? null : t))}
+            className={`${styles.chip} ${active === t ? styles.active : ""}`}
+            onClick={() => setActive(t)}
+            aria-pressed={active === t}
           >
             {t}
           </button>
         ))}
       </div>
 
+      {/* Cards grid */}
       <section className={styles.grid} aria-live="polite">
         {filtered.map((s) => (
-          <a
-            key={s.slug}
-            href={`#${s.slug}`}
-            className={styles.card}
-            aria-label={`Jump to ${s.title}`}
-          >
-            <div className={styles.media}>
-              <Image
-                src={
-                  s.hero?.startsWith("/")
-                    ? s.hero
-                    : "/images/hero/hero-workshop.jpg"
-                }
-                alt={s.alt || s.title}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-                priority={false}
-              />
-            </div>
-
-            <div className={styles.cardBody}>
-              <h3 className={styles.cardTitle}>{s.title}</h3>
-              {s.summary ? (
-                <p className={styles.cardSummary}>{s.summary}</p>
-              ) : null}
-            </div>
-          </a>
+          <article key={s.slug} className={styles.card}>
+            <a
+              className={styles.cardLink}
+              href={`#${s.slug}`}
+              aria-label={`View ${s.title}`}
+            >
+              <div className={styles.cardMedia}>
+                <Image
+                  src={
+                    s.hero?.startsWith("/")
+                      ? s.hero
+                      : s.hero || "/images/hero/hero-workshop.jpg"
+                  }
+                  alt={s.alt || s.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+              <div className={styles.cardBody}>
+                <h3 className={styles.cardTitle}>{s.title}</h3>
+                {s.summary ? (
+                  <p className={styles.cardSummary}>{s.summary}</p>
+                ) : null}
+                <span className={styles.cardCta}>View details</span>
+              </div>
+            </a>
+          </article>
         ))}
       </section>
     </>

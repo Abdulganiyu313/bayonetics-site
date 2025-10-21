@@ -9,8 +9,8 @@ type Props = { variant?: "default" | "footer" }; // ✅ new
 /** Edit these once and they update everywhere */
 const LINKS = {
   facebook: "https://www.facebook.com/BayoneticsEngineering",
-  youtube: "#", // TODO
-  linkedin: "#", // TODO
+  youtube: "https://www.youtube.com/@Bayonetics",
+  linkedin: "https://www.linkedin.com/company/bayonetics-engineering",
   email: "mail.bayonetics@gmail.com",
   phone: "+2348161660213",
 };

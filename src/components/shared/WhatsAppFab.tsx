@@ -2,7 +2,7 @@
 import Link from "next/link";
 import styles from "./WhatsAppFab.module.scss";
 
-const WHATSAPP = "https://wa.me/2348012345678"; // TODO: your real number
+const WHATSAPP = "https://wa.me/2348161660213";
 
 export default function WhatsAppFab() {
   return (
