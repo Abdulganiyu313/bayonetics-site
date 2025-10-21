@@ -42,7 +42,7 @@ export default function Form({ services, selectedSlug }: Props) {
     setFiles(list);
   }
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
     setStatus("idle");
@@ -56,22 +56,32 @@ export default function Form({ services, selectedSlug }: Props) {
       else fd.delete("sendcopy");
 
       const res = await fetch("/api/contact", { method: "POST", body: fd });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        throw new Error(data?.error || "Failed to send");
+      const data: unknown = await res.json();
+      if (
+        !res.ok ||
+        typeof data !== "object" ||
+        data === null ||
+        (data as { ok?: boolean }).ok !== true
+      ) {
+        const message =
+          typeof data === "object" &&
+          data &&
+          "error" in (data as Record<string, unknown>)
+            ? String((data as Record<string, unknown>).error)
+            : "Failed to send";
+        throw new Error(message);
       }
 
       setStatus("ok");
-      // Optional: clear in case user navigates back
       formRef.current?.reset();
       setFiles([]);
       setService("");
 
-      // Redirect to thank you page
       router.push("/contact/thank-you");
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Something went wrong";
       setStatus("error");
-      setErrorMsg(err?.message || "Something went wrong");
+      setErrorMsg(msg);
     } finally {
       setSubmitting(false);
     }
