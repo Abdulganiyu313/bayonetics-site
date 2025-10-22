@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./Hero.module.scss";
 import Reveal from "@/components/ui/Reveal";
 
-const WHATSAPP = "https://wa.me/2348012345678"; // TODO: real number
+const WHATSAPP = "https://wa.me/2348161660213";
 
 export default function Hero() {
   return (
