@@ -1,12 +1,17 @@
+// src/app/robots.ts
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = (
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ).replace(/\/$/, "");
-  return {
-    rules: { userAgent: "*", allow: "/" },
-    sitemap: `${base}/sitemap.xml`,
-    host: base,
+  // Prefer explicit site URL, otherwise build from Vercel env.
+  const base =
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined);
+
+  const config: MetadataRoute.Robots = {
+    rules: [{ userAgent: "*", allow: "/" }],
+    // Only emit sitemap/host if we resolved a base URL
+    ...(base ? { sitemap: `${base}/sitemap.xml`, host: base } : {}),
   };
+
+  return config;
 }
